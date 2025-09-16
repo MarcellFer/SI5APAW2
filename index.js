@@ -11,9 +11,42 @@ app.get("/about",(req, res) => {
 });
 
 app.get("/contact",(req, res) => { 
-  res.send("Contact Me");
+  // res.send("Contact Us");
+  res.sendFile(__dirname + "/contact.html");
+});
+
+app.get("/mahasiswa",(req, res) => { 
+  res.json({
+      status:"Success",
+      message: "Data Mahasiswa",
+      data: ["Reza", "Gilang", "Fadhil"]
+  });
+});
+
+app.get("/nilai",(req, res) => { 
+  res.json({
+      status:"Success",
+      message: "Data Nilai",
+      data: [
+        {mk: "Bahasa Indonesia", nilai: "A"},
+        {mk: "PAW 1", nilai: "A"},
+        {mk: "PAB 1", nilai: "B+"}
+      ]
+  });
+});
+
+
+app.get("/fakultas/:id", (req, res) =>{
+  // res.send(`Fakultas id : ${req.params.id}`);
+  res.send("Fakultas ID : "+ req.params.id);
+});
+
+// jika route yang diakses tidak terdaftar, maka ditampilkan not found
+app.use("/",(req, res) => {
+  res.status(404); // http response code not found
+  res.send("<h1>Not Found</h1>");
 });
 
 app.listen(port, () => {
   console.log(`Server dapat diakses : http://localhost:${port}`);
-}); 
+});
