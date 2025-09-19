@@ -2,17 +2,22 @@ const express = require("express"); // impor module express
 const app = express(); // express application
 const port = 3000; // port yang akan digunakan 
  
+app.set('view engine', 'ejs');
+
 app.get("/",(req, res) => { // method (req untuk request, res untuk respon)
-  res.send("Hello World");
+  // res.send("Hello World");
+  res.render('index');
 });
  
 app.get("/about",(req, res) => { 
-  res.send("About Us");
+  // res.send("About Us");
+  res.render('about');
 });
 
 app.get("/contact",(req, res) => { 
   // res.send("Contact Us");
-  res.sendFile(__dirname + "/contact.html");
+  //res.sendFile(__dirname + "/contact.html");
+  res.render('contact');
 });
 
 app.get("/mahasiswa",(req, res) => { 
