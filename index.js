@@ -6,7 +6,12 @@ app.set('view engine', 'ejs');
 
 app.get("/",(req, res) => { // method (req untuk request, res untuk respon)
   // res.send("Hello World");
-  res.render('index');
+  const news = [
+    {id : 1, title : "Belajar express", content : "..."},
+    {id : 2, title : "Kampung SI 2025", content : "..."},
+    {id : 3, title : "Sosialisasi PTA/TA SI", content : "..."}
+  ];
+  res.render('index', {news});
 });
  
 app.get("/about",(req, res) => { 
@@ -18,6 +23,19 @@ app.get("/contact",(req, res) => {
   // res.send("Contact Us");
   //res.sendFile(__dirname + "/contact.html");
   res.render('contact');
+});
+
+app.get("/prodi",(req, res) => { 
+  // res.send("About Us");
+  const prodi = [
+    {kode : 24, namaProdi : "Sistem Informasi", singkatan : "SI", namaFakultas : "Fakultas Ilmu Komputer an Rekayasa"},
+    {kode : 25, namaProdi : "Informatika", singkatan : "IF", namaFakultas : "Fakultas Ilmu Komputer dan Rekayasa"},
+    {kode : 11, namaProdi : "Manajemen Informatika", singkatan : "MI", namaFakultas : "Fakultas Ilmu domputer Dan Rekayasa"},
+    {kode : 27, namaProdi : "Teknik Elektro", singkatan : "TE", namaFakultas : "Fakultas Ilmu Komputer dan Rekayasa"},
+    {kode : 20, namaProdi : "Akuntansi", singkatan : "AK", namaFakultas : "Fakultas Ekonomi dan Bisnis"},
+    {kode : 21, namaProdi : "Manajemen", singkatan : "MJ", namaFakultas : "Fakultas Ekonomi dan Bisnis"}
+  ];
+  res.render('prodi', {prodi, title: "Program Studi"});
 });
 
 app.get("/mahasiswa",(req, res) => { 
