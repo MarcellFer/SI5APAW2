@@ -1,8 +1,11 @@
 const express = require("express"); // impor module express
+const expressLayout = require("express-ejs-layouts"); //impor express-ejs-layouts
+
 const app = express(); // express application
 const port = 3000; // port yang akan digunakan 
  
 app.set('view engine', 'ejs');
+app.use(expressLayout);
 
 app.get("/",(req, res) => { // method (req untuk request, res untuk respon)
   // res.send("Hello World");
@@ -11,18 +14,18 @@ app.get("/",(req, res) => { // method (req untuk request, res untuk respon)
     {id : 2, title : "Kampung SI 2025", content : "..."},
     {id : 3, title : "Sosialisasi PTA/TA SI", content : "..."}
   ];
-  res.render('index', {news});
+  res.render('index', {news, title: "Home", layout: "main"});
 });
  
 app.get("/about",(req, res) => { 
   // res.send("About Us");
-  res.render('about');
+  res.render('about', {title: "About Us", layout: "main"});
 });
 
 app.get("/contact",(req, res) => { 
   // res.send("Contact Us");
   //res.sendFile(__dirname + "/contact.html");
-  res.render('contact');
+  res.render('contact', {title: "Contact Us", layout: "main"});
 });
 
 app.get("/prodi",(req, res) => { 
@@ -35,7 +38,7 @@ app.get("/prodi",(req, res) => {
     {kode : 20, namaProdi : "Akuntansi", singkatan : "AK", namaFakultas : "Fakultas Ekonomi dan Bisnis"},
     {kode : 21, namaProdi : "Manajemen", singkatan : "MJ", namaFakultas : "Fakultas Ekonomi dan Bisnis"}
   ];
-  res.render('prodi', {prodi, title: "Program Studi"});
+  res.render('prodi', {prodi, title: "Program Studi", layout: "main"});
 });
 
 app.get("/mahasiswa",(req, res) => { 
