@@ -6,6 +6,7 @@ const port = 3000; // port yang akan digunakan
  
 app.set('view engine', 'ejs');
 app.use(expressLayout);
+app.use(express.static("public"));
 
 app.get("/",(req, res) => { // method (req untuk request, res untuk respon)
   // res.send("Hello World");
