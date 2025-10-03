@@ -10,7 +10,7 @@ const contact = (req, res) => {
     res.render('contact', {title: "Contact Us", layout: "main"});
 }
 const prodi = (req, res) => {
-    const proddi = [
+    const prodi = [
       {kode : 24, namaProdi : "Sistem Informasi", singkatan : "SI", namaFakultas : "Fakultas Ilmu Komputer an Rekayasa"},
       {kode : 25, namaProdi : "Informatika", singkatan : "IF", namaFakultas : "Fakultas Ilmu Komputer dan Rekayasa"},
       {kode : 11, namaProdi : "Manajemen Informatika", singkatan : "MI", namaFakultas : "Fakultas Ilmu domputer Dan Rekayasa"},
