@@ -7,12 +7,12 @@ const mainController = require('../controllers/mainController');
 router.get('/', mainController.index);
 
 // get about page
-router.get('/', mainController.about);
+router.get('/about', mainController.about);
 
 // get contact page
-router.get('/', mainController.contact);
+router.get('/contact', mainController.contact);
 
 // get prodi page
-router.get('/', mainController.prodi);
+router.get('/prodi', mainController.prodi);
 
 module.exports = router;
