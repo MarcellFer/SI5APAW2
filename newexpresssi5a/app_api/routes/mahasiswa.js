@@ -4,9 +4,9 @@ const express = require('express');
 const router = express.Router();
 
 // Mengimpor controller fakultas untuk menangani logika bisnis
-const prodiController = require('../controllers/prodiControllers');
+const mahasiswaController = require('../controllers/mahasiswaControllers');
 
-router.get('/', prodiController.getAllProdi);
+router.get('/', mahasiswaController.getAllMahasiswa);
 
 // Mengekspor router agar dapat digunakan di file lain (misalnya di app.js)
 module.exports = router;
