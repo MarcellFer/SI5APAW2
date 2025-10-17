@@ -30,8 +30,8 @@ app.use(expressLayouts);
 
 app.use('/', indexRouter);
 app.use('/users', usersRouter);
-app.use('./api/fakultas', fakultasRouterAPI); // API route
-app.use('./api/berita', beritaRouterAPI);
+app.use('/api/fakultas', fakultasRouterAPI); // API route
+app.use('/api/berita', beritaRouterAPI);
 
 // catch 404 and forward to error handler
 app.use(function(req, res, next) {
