@@ -1,0 +1,34 @@
+// mengimpor modul mongoose untuk mengelola skema dan model MongoDB
+const mongoose = require('mongoose');
+
+// Definisi skema untuk koleksi 'Fakultas'
+const prodiSchema = new mongoose.Schema({
+    // field untuk nama fakultas
+    nama: {
+        type: String, // tipe data string
+        required: true, // wajib diisi
+        trim: true // menghapus spasi di awal dan akhir
+    },
+    // field untuk singkatan fakultas
+    singkatan: {
+        type: String,
+        required: true,
+        trim: true
+    },
+    fakultas_id: {
+        type: mongoose.Schema.Types.ObjectId,
+        ref: 'fakultas',
+        required: true
+    },
+    // field untuk menyimpan tanggal pembuatan dokumen
+    createdAt: {
+        type: Date, // tipe data tanggal
+        default: Date.now //Default adalah waktu saat dokumen dibuat
+    }
+});
+
+// Buat model Fakultas berdasarkan skema yang telah didefinisikan
+const prodi = mongoose.model('prodi', prodiSchema);
+
+// mengekspor model Fakultas agar dapat digunakan di bagian lain aplikasi
+module.exports = prodi;
