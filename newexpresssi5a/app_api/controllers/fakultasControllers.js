@@ -1,11 +1,11 @@
 // impor model Fakultas
-const fakultas = require('../models/fakultas');
+const fakultasSchema = require('../models/fakultas');
 
 // fungsi untuk mengambil isi collection fakultas
 const getAllFakultas = async (req, res) => {
     try {
         // mengambil semua fakultas dari database
-        const result = await fakultas.find();
+        const result = await fakultasSchema.find();
         // mengirimkan respon berisi data fakultas dengan status 200 (OK)
         res.status(200).json(result);
     } catch (error) {
@@ -16,7 +16,7 @@ const getAllFakultas = async (req, res) => {
 
 const createFakultas = async (req, res)=> {
     //buat insatance fakultas baru
-    const fakultas = new fakultas({
+    const fakultas = new fakultasSchema({
         nama: req.body.nama,
         singkatan: req.body.singkatan
     })
