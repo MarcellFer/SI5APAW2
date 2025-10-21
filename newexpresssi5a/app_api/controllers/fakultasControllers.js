@@ -14,5 +14,18 @@ const getAllFakultas = async (req, res) => {
     }
 };
 
+const createFakultas = async (req, res)=> {
+    //buat insatance fakultas baru
+    const fakultas = new fakultas({
+        nama: req.body.nama,
+        singkatan: req.body.singkatan
+    })
+    
+    // simpan data fakultas ke dalam collection
+    const hasil = await fakultas.save();
+    //beri response json http_created
+    res.status(201).json(hasil);
+}
+
 // export
-module.exports = { getAllFakultas };
+module.exports = { getAllFakultas, createFakultas };

@@ -8,6 +8,7 @@ const fakultasController = require('../controllers/fakultasControllers');
 
 // Mengatur rute GET untuk mendapatkan semua data fakultas
 router.get('/', fakultasController.getAllFakultas);
+router.post('/', fakultasController.createFakultas)
 
 // Mengekspor router agar dapat digunakan di file lain (misalnya di app.js)
 module.exports = router;
